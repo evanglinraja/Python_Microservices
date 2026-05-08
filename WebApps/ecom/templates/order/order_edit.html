@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Edit Order{% endblock %}
+
+{% block content %}
+<h1>Edit Order</h1>
+<form method="post">
+    {% csrf_token %}
+   <label for="">Product Id</label>
+    <input type="number" name="ProductId" value="{{ order.ProductId }}" class="form-control mb-3" required>
+    <label for="">Quantity</label>
+    <input type="number" name="Quantity" value="{{ order.Quantity }}" class="form-control mb-3" required>
+    <label for="">Total Price</label>
+    <input type="number" name="TotalPrice" value="{{ order.TotalPrice }}" class="form-control mb-3" required>
+    <button type="submit" class="btn btn-success">Update Order</button>
+    <a href="{% url 'order_list' %}" class="btn btn-white ms-3 shadow">Back</a>
+</form>
+{% endblock %}
